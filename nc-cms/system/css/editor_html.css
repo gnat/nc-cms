@@ -1,0 +1,38 @@
+#wrapper 
+{
+    margin: 20px auto;
+    width: 980px;
+}
+
+#editor
+{
+    margin: 0 auto;
+    width: 900px;
+	background: #F8F8F8 url('../images/content_background_large.png') top center repeat-y;
+}
+
+#editor h1
+{
+	content: none;
+	display: block;
+	width: 900px;
+	height: 96px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: #F8F8F8 url('../images/header_background_large.png') top center no-repeat;
+}
+
+#editor .footer
+{
+	display: block;
+	width: 900px;
+	height: 38px;
+	background: #F8F8F8 url('../images/footer_background_large.png') top center no-repeat;
+}
+
+#editor .tip
+{
+	color: #999999;
+	font-style: italic;
+	font-size: 11px;
+}

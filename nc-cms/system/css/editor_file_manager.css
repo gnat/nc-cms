@@ -1,0 +1,116 @@
+body
+{
+	background: #F8F8F8 ;		
+	padding: 0;
+	margin: 0;
+	overflow:hidden;
+}
+
+#wrapper-left
+{
+	padding: 10px;
+	margin: 0;
+	width: 270px; 
+	float:left;
+	overflow: hidden;
+}
+
+#wrapper-right
+{
+	padding: 10px;
+	margin: 0;
+	width: 320px; 
+	float:left;
+}
+
+#wrapper-left form p input#file
+{
+}
+
+#wrapper-left .message
+{
+	margin: 0 auto 10px auto; 
+	border: 1px solid #00AA00; 
+	background: #AADDAA; 
+	width: 260px; 
+	text-align:center; 
+	padding: 2px;
+	overflow: hidden;
+}
+
+#wrapper-right .listing
+{
+	overflow:auto; 
+	width: 320px; 
+	height: 400px; 
+	background: #E8E7E7; 
+	border: 1px solid #AAAAAA;
+	padding: 2px;
+
+}
+
+#wrapper-right .listing a
+{
+	padding: 2px; 
+	padding-left: 19px; 
+	padding-top: 3px;
+	display: block;
+	text-decoration: none;
+	color: #333333;
+	background-position: 1px 2px; 	
+	overflow: hidden;
+}
+
+#wrapper-right .listing a:hover
+{
+
+	background-color: #FAFAFA;
+	overflow: hidden;
+}
+
+
+.image_preview 
+{
+	width: 200px;
+	height: 200px;
+}
+
+.image_preview img
+{
+	max-width: 270px;
+	max-height: 180px;
+	border: 1px solid #228822;
+	margin-top: 4px;
+	padding: 1px;
+}
+
+
+.nc_cp
+{
+	margin: 0;
+	padding: 8px 8px 6px 10px;
+	color: #94CD1B;
+	background: #F8F8F8 url('../images/nc_logo.gif') no-repeat left -14px;
+	border-bottom: 1px solid #999999;
+	height: 32px;
+}
+
+.nc_cp
+{
+	margin: 0;
+	padding: 0px 8px 6px 0px;
+	color: #94CD1B;
+	background: #F8F8F8 url('../images/bg.gif') repeat-x left bottom;
+	height: 50px;
+}
+
+
+.nc_logo
+{
+	margin: 0;
+	padding: 0;
+	width: 369px;
+	height: 50px;
+	float: left;
+	background: #F8F8F8 url('../images/nc_logo.gif') no-repeat left;
+}

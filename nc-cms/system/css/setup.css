@@ -1,0 +1,169 @@
+body 
+{
+	font-size: 12px;
+	font-family: "Helvetica Neue", arial, helvetica, sans-serif;
+	background: #D6D5D5;
+	color: #808080;
+}
+
+strong 
+{
+	font-weight: bold;
+}
+
+em 
+{
+	font-style: italic;
+}
+
+a:link 
+{ 
+	text-decoration: none; 
+	color: #505050;
+}
+
+a:visited 
+{ 
+	text-decoration: none; 
+	color: #505050;
+}
+
+a:hover, a:active 
+{ 
+	text-decoration: underline; 
+	color: #101010;
+}
+
+/* custom elements */		
+#wrapper 
+{
+    margin: 20px auto;
+    width: 760px;
+}
+
+#login
+{
+    margin: 0 auto;
+    width: 410px;
+	background: #F8F8F8 url('../images/content_background.png') top center repeat-y;
+	text-align: center;
+}
+
+#login p
+{
+	
+	padding: 10px 20px 10px 20px;
+}
+
+#login h1 a
+{
+	content: none;
+	display: block;
+	width: 410px;
+	height: 110px;
+	text-indent: -9999px;
+	overflow: hidden;
+	background: #F8F8F8 url('../images/header_background.png') top center no-repeat;
+}
+
+#login form
+{
+	margin: 0 20px 20px 120px;
+}
+
+#login form p input
+{
+	padding: 1px;
+	width: 160px;
+}
+
+#login form p label
+{
+	font-weight: bold;
+}
+
+#loginform p label
+{
+	font-size: 12px;
+	color: #444444;
+}
+
+#login .footer
+{
+	display: block;
+	width: 410px;
+	height: 38px;
+	background: #F8F8F8 url('../images/footer_background.png') top center no-repeat;
+}
+
+#backtosite a 
+{
+	position: absolute;
+	top: 7px;
+	left: 15px;
+	text-decoration: none;
+	font-size: 14px;
+}
+
+
+.button
+{
+	background: url('../images/button_right.gif') no-repeat right top;
+	float: left;
+}
+
+.button a, .button a:link, .button a:visited, .button a:active, .button a:hover
+{
+	
+	padding: 0px 12px 0px 12px;
+	height: 26px;
+	background: url('../images/button_left.gif') no-repeat left top;
+	color: #707070;
+	line-height: 26px;
+	text-align: center;
+	font-weight: bold;
+	font-size: 13px;
+	text-decoration: none;
+	display: block;
+}
+
+.button a:hover
+{
+	color: #303030;
+}
+
+.button a .icon 
+{
+	padding: 0px 0px 0px 20px;
+	font-weight: bold;
+	height: 16px;
+}
+
+.icon_go
+{
+	background: url('../images/key_go.png') no-repeat left top;
+}
+
+.icon_accept
+{
+	background: url('../images/accept.png') no-repeat left top;
+}
+
+
+.icon_setup_database
+{
+	background: url('../images/setup_database.png') no-repeat left top;
+}
+
+
+
+.clear
+{
+	clear: both;
+}
+
+.print_only
+{
+	display: none;
+}
+
