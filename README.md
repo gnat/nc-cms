@@ -22,3 +22,7 @@ More information.
 http://www.nconsulting.ca/nc-cms
 
 nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Do you like nc-cms? You may also be interested in his software development blog at http://www.geenat.com
+
+
+[![Bitdeli Badge](https://d2weczhvl823v0.cloudfront.net/gnat/nc-cms/trend.png)](https://bitdeli.com/free "Bitdeli Badge")
+
