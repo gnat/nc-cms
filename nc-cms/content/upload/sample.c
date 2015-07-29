@@ -1,28 +1,24 @@
 #include "master.h"
 
-/*****************************************************************************
-
-    Function: main
-
-    Description: Home.
-    Parameters: pointer to the UNIVERSE.
-    Return: Success
-
-*****************************************************************************/
+/**
+* Main.
+* @param Pointer to the UNIVERSE.
+* @return Success.
+*/
 int main(int argc, char *argv[])
 {
-    initialize();
-    loadData();
+    Initialize();
+    LoadData();
+    NewGame();
     
     while(running)
     {  
-        doLogic();
-        doDrawing();
-        
-        blitScreen();
+        Logic();
+        Drawing();
     }
 
-    shutdown();
+    Shutdown();
     
     return 0;
 }
+
