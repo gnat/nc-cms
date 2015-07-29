@@ -5,7 +5,7 @@ Embeddable, lightweight PHP Content Management System (CMS). Quick single file "
 
 Can optionally use a database for content storage (MySQL, etc.) However, a database is not required, and nc-cms uses fast flat file storage by default.
 
-nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license. Will run on any web server that supports PHP 5 or higher. Do you like nc-cms? You may also be interested in his software development blog at http://www.geenat.com
+For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license. Will run on any web server that supports PHP 5 or higher. Do you like nc-cms?
 
 **Some kind words from the community...**
 
@@ -23,3 +23,24 @@ nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licens
 
 **Editor**
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
+
+**Integration Example**
+```php
+<?php require('nc-cms/system/start.php'); ?>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title><?php nc_title('home_title'); ?></title>
+	<link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />
+</head>
+<body>
+	<?php nc_get_cp(); ?>
+	<div class="content">
+		<?php nc_content_html('home_content'); ?>
+	</div>
+	<div class="footer">
+		<?php nc_login_link(); ?>
+	</div>
+</body>
+```
