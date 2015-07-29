@@ -15,13 +15,13 @@ Some kind words from the community...
 
 "Thanks for such a killer cms that is so simple.. great concept!"
 
-===Sample Website===
+**Sample Website**
 <img src="http://i.imgur.com/I8Kktc2.png" alt="nc-cms Screenshot 1" />
 
-===Login===
+**Login**
 <img src="http://i.imgur.com/CFfEaFg.png" alt="nc-cms Screenshot 2" />
 
-===Editor===
+**Editor**
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
 
