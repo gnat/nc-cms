@@ -5,7 +5,7 @@ Embeddable, lightweight PHP Content Management System (CMS). Quick single file "
 
 Can optionally use a database for content storage (MySQL, etc.) However, a database is not required, and nc-cms uses fast flat file storage by default.
 
-For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license. Will run on any web server that supports PHP 5 or higher. Do you like nc-cms?
+For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license. Will run on any web server that supports PHP 5 or higher.
 
 **Some kind words from the community...**
 
