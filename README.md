@@ -24,18 +24,6 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 **Editor**
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
-### Installation
-
-1. Use **git clone** or [download a zip of nc-cms](https://github.com/gnat/nc-cms/archive/master.zip).
-
-2. Edit **/nc-cms/config.php**. Be sure to set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to true and configure the database connectivity settings as well.
-
-3. Upload your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
-
-4. If you've set up nc-cms's database support in step 2, run **/nc-cms/setup_database_mysql.php** from your web server now.
-
-5. Installation complete! Move onto the next section to integrate your first page and see it in action.
-
 ### Integration Example
 ```php
 <?php require('nc-cms/system/start.php'); ?> <!-- #1 Include CMS header. -->
@@ -58,31 +46,43 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 </html>
 ```
 
+### Installation
+
+1. Use **git clone** or [download a zip of nc-cms](https://github.com/gnat/nc-cms/archive/master.zip).
+
+2. Edit **/nc-cms/config.php**. Be sure to set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to true and configure the database connectivity settings as well.
+
+3. Upload your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
+
+4. If you've set up nc-cms's database support in step 2, run **/nc-cms/setup_database_mysql.php** from your web server now.
+
+5. Installation complete! Move onto the next section to integrate your first page and see it in action.
+
 ### Integration Instructions
 
 nc-cms can be integrated into any web page file (**.html**, **.htm**, **.php**, etc.). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. Also be sure to change your internal links to **.php** where necessary.
 
 Insert the following lines of code into your web page file:
 
-1. To activate nc-cms on a page, insert the following code before your opening **<html>** tag. It is possible that you may need to change this path depending on where you've uploaded nc-cms.
+1. To activate nc-cms on a page, insert the following code before your opening `<html>` tag. It is possible that you may need to change this path depending on where you've uploaded nc-cms.
 
 ```<?php require('nc-cms/system/start.php'); ?>```
 
-2. To enable the ability to edit the page title when logged into nc-cms. Insert the following code inside your **<title>** tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (ex: home_title, about_title, etc.).
+2. To enable the ability to edit the page title when logged into nc-cms. Insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (ex: home_title, about_title, etc.).
 
 ```<?php nc_title('custom_name'); ?>```
 
 *TIP: If you'd like another page to use the same title, use the same custom_name.*
 
-3. Include the CSS used by nc-cms, insert the following code inside of your **<head>** tag.
+3. Include the CSS used by nc-cms, insert the following code inside of your `<head>` tag.
 
 ```<link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />```
 
-4. When logged into nc-cms, this will enable the control panel to appear on your page. Insert the following code just after your opening **<body>** tag.
+4. When logged into nc-cms, this will enable the control panel to appear on your page. Insert the following code just after your opening `<body>` tag.
 
 ```<?php nc_get_cp(); ?>```
 
-5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your <body>** tags.
+5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
 These editable content areas come in two flavours: HTML and String.
 
