@@ -24,6 +24,8 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 **Editor**
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
+[...](#instructions)
+
 ### Integration Example
 ```php
 <?php require('nc-cms/system/start.php'); ?> <!-- #1 Include CMS header. -->
