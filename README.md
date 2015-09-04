@@ -78,7 +78,7 @@ Integrate into any web page file (**.html**, **.htm**, **.php**). If you would l
 
         <?php nc_get_cp(); ?>
 
-5. The following lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
+5. The following lines will place editable content areas. These will display any content assigned to the **custom_name**, and when you are logged in, will enable you to edit them. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
     These editable content areas come in two flavours: **HTML** and **string**.
 
