@@ -60,13 +60,13 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 
 ### Integration Instructions
 
-Integrate into any web page file (**.html**, **.htm**, **.php**, etc.). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also be sure to change your internal links to **.php** where necessary.)
+Integrate into any web page file (**.html**, **.htm**, **.php**). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also be sure to change your internal links to **.php** where necessary.)
 
 1. To activate nc-cms on a page, insert the following code before your opening `<html>` tag. It is possible that you may need to change this path depending on where you've uploaded nc-cms.
 
         <?php require('nc-cms/system/start.php'); ?>
 
-2. To enable the ability to edit the page title when logged into nc-cms. Insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (ex: home_title, about_title, etc.). *TIP: If you'd like another page to use the same title, use the same custom_name.*
+2. To enable editing ability on this page, insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (Examples: **home_title**, **about_title**). *TIP:* If you'd like another page to use the same title, use the same **custom_name**.
 
         <?php nc_title('custom_name'); ?>
 
@@ -74,25 +74,25 @@ Integrate into any web page file (**.html**, **.htm**, **.php**, etc.). If you w
 
         <link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />
 
-4. When logged into nc-cms, this will enable the control panel to appear on your page. Insert the following code just after your opening `<body>` tag.
+4. When logged into nc-cms, this will enable the control panel to appear. Insert the following code just after your opening `<body>` tag.
 
         <?php nc_get_cp(); ?>
 
 5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
-    These editable content areas come in two flavours: HTML and String.
+    These editable content areas come in two flavours: **HTML** and **string**.
 
-    The HTML content area is the most common. These areas can contain many paragraphs, images, headers, links and more. Define an HTML area like this:
+    The **HTML** content area is the most common. These areas can contain many paragraphs, images, headers, links and more. Define an HTML area like this:
 
         <?php nc_content_html('custom_name'); ?>
 
-    The String content area is used for single lines of text. When used, these are generally placed inline between the header and paragraph tags themselves. Define a String area like this:
+    The **string** content area is used for single lines of text. When used, these are generally placed inline between the header and paragraph tags themselves as per your convenience. Define a String area like this:
 
         <?php nc_content_string('custom_name'); ?>
 
     Again, **custom_name** can be anything you wish. I personally recommend a naming convention of page_content (Example: home_main, home_sidebar, about_contact, all_copyright etc.).
 
-    *TIP: If you would like to display the same content across multiple pages, use the same **custom_name**. This is useful for content such as copyright information.*
+    *TIP:* If you would like to display the same content across multiple pages, use the same **custom_name**. This is useful for content such as *copyright information*.
 
 6. Login Link (Optional). You may want to place a link on the page for easy access to the nc-cms login page. If this is the case, use the following line of code.
 
@@ -104,15 +104,15 @@ Integrate into any web page file (**.html**, **.htm**, **.php**, etc.). If you w
 
 ### Managing Content
 
-1. Visit the page you would like to edit (as you will be re-directed here after login).
+1. Visit the page you would like to edit (you will be re-directed here after login).
 
-2. If you created a login link as described in the previous section, use that now. If not, you can get to the login page by visiting the **/nc-cms** directory directly (Example: **http://www.example.com/nc-cms**). You will be directed to the nc-cms login page. You If you enter your username and password correctly, you will re-directed to the previous page in editor mode.
+2. If you created a login link, use that now. Otherwise you can get to the login page by visiting the **/nc-cms** directory directly (Example: **http://www.example.com/nc-cms**. If the login is a success, you will re-directed to the previous page in editor mode.
 
-3. Use an Edit Button. You will notice two things after successfully logging in: A new control panel will appear at the top of your page. Depending on how many editable content areas you added during your integration, there will be a number of edit buttons scattered throughout your web page. Use these buttons to edit the section associated with it.
+3. You will notice two things after successfully logging in: A new control panel will appear at the top of your page. Depending on how many editable content areas you added during your integration, there will be a number of edit buttons scattered throughout your web page. Use these buttons to edit the section associated with it.
 
-4. Edit and Save. Edit buttons will direct you to a content editor. Make your changes here and click save. If all has been done correctly, you should be redirected to your live page, with your changes applied.
+4. Edit buttons will direct you to a content editor. Make your changes here and click save. If all has been done correctly, you should be redirected to your live page, with your changes applied.
 
-5. Logout. Logging out is essential for preventing unauthorized changes to your website by anyone using the same computer.
+5. Logout! Logging out is essential for preventing unauthorized changes to your website by anyone using the same computer.
 
 ### Upgrading
 
@@ -120,8 +120,8 @@ You may want to upgrade your version of nc-cms down the road.
 
 1. Back up your settings and content: FTP into your web server. Go to the **/nc-cms** directory and back up your **/nc-cms/config.php** file and **/nc-cms/content** directory.
 
-2. Delete the **/nc-cms** directory and replace it with the new version. Download the latest version of nc-cms from our website. Remove the **/nc-cms** directory that is currently on your web server. Extract and upload the new **/nc-cms** folder to the former installation location on your web server.
+2. Delete the **/nc-cms** directory and replace it with the new version. Download the latest version of nc-cms. Remove the **/nc-cms** directory that is currently on your web server. Extract and upload the new **/nc-cms** folder to the former installation location on your web server.
 
-3. Re-upload your settings and content. Upload your **config.php** file and **/content** directory to the new nc-cms installation. Replace as necessary.
+3. Re-upload your **config.php** file and **/content** directory to the new nc-cms installation. Replace as necessary.
 
 4. Upgrade complete! You can confirm your update by logging into nc-cms. The version number is displayed in the top-left of the menu bar. Remember, you may need to explicitly clear your browser cache after the update in order to see all of the changes.
