@@ -80,25 +80,25 @@ Integrate into any web page file (**.html**, **.htm**, **.php**, etc.). If you w
 
 5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
-These editable content areas come in two flavours: HTML and String.
+    These editable content areas come in two flavours: HTML and String.
 
-The HTML content area is the most common. These areas can contain many paragraphs, images, headers, links and more. Define an HTML area like this:
+    The HTML content area is the most common. These areas can contain many paragraphs, images, headers, links and more. Define an HTML area like this:
 
         <?php nc_content_html('custom_name'); ?>
 
-The String content area is used for single lines of text. When used, these are generally placed inline between the header and paragraph tags themselves. Define a String area like this:
+    The String content area is used for single lines of text. When used, these are generally placed inline between the header and paragraph tags themselves. Define a String area like this:
 
         <?php nc_content_string('custom_name'); ?>
 
-Again, **custom_name** can be anything you wish. I personally recommend a naming convention of page_content (Example: home_main, home_sidebar, about_contact, all_copyright etc.).
+    Again, **custom_name** can be anything you wish. I personally recommend a naming convention of page_content (Example: home_main, home_sidebar, about_contact, all_copyright etc.).
 
-*TIP: If you would like to display the same content across multiple pages, use the same **custom_name**. This is useful for content such as copyright information.*
+    *TIP: If you would like to display the same content across multiple pages, use the same **custom_name**. This is useful for content such as copyright information.*
 
 6. Login Link (Optional). You may want to place a link on the page for easy access to the nc-cms login page. If this is the case, use the following line of code.
 
         <?php nc_login_link(); ?>
 
-Or even simpler:
+    Or even simpler:
 
         <a href="/nc-cms">Login</a>
 
