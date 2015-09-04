@@ -60,7 +60,7 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 
 5. Installation complete! Move onto the next section to integrate your first page and see it in action.
 
-### Integration Instructions
+### Integration
 
 Integrate into any web page file (**.html**, **.htm**, **.php**). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also be sure to change your internal links to **.php** where necessary.)
 
