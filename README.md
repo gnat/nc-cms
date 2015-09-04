@@ -52,7 +52,7 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 
 2. Edit **/nc-cms/config.php**. Be sure to set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to true and configure the database connectivity settings as well.
 
-3. Upload your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
+3. Copy over your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
 
 4. If you've set up nc-cms's database support in step 2, run **/nc-cms/setup_database_mysql.php** from your web server now.
 
