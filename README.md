@@ -60,27 +60,23 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 
 ### Integration Instructions
 
-nc-cms can be integrated into any web page file (**.html**, **.htm**, **.php**, etc.). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. Also be sure to change your internal links to **.php** where necessary.
-
-Insert the following lines of code into your web page file:
+Integrate into any web page file (**.html**, **.htm**, **.php**, etc.). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also be sure to change your internal links to **.php** where necessary.)
 
 1. To activate nc-cms on a page, insert the following code before your opening `<html>` tag. It is possible that you may need to change this path depending on where you've uploaded nc-cms.
 
-```<?php require('nc-cms/system/start.php'); ?>```
+        <?php require('nc-cms/system/start.php'); ?>
 
-2. To enable the ability to edit the page title when logged into nc-cms. Insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (ex: home_title, about_title, etc.).
+2. To enable the ability to edit the page title when logged into nc-cms. Insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (ex: home_title, about_title, etc.). *TIP: If you'd like another page to use the same title, use the same custom_name.*
 
-```<?php nc_title('custom_name'); ?>```
-
-*TIP: If you'd like another page to use the same title, use the same custom_name.*
+        <?php nc_title('custom_name'); ?>
 
 3. Include the CSS used by nc-cms, insert the following code inside of your `<head>` tag.
 
-```<link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />```
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />
 
 4. When logged into nc-cms, this will enable the control panel to appear on your page. Insert the following code just after your opening `<body>` tag.
 
-```<?php nc_get_cp(); ?>```
+        <?php nc_get_cp(); ?>
 
 5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
@@ -88,11 +84,11 @@ These editable content areas come in two flavours: HTML and String.
 
 The HTML content area is the most common. These areas can contain many paragraphs, images, headers, links and more. Define an HTML area like this:
 
-```<?php nc_content_html('custom_name'); ?>```
+        <?php nc_content_html('custom_name'); ?>
 
 The String content area is used for single lines of text. When used, these are generally placed inline between the header and paragraph tags themselves. Define a String area like this:
 
-```<?php nc_content_string('custom_name'); ?>```
+        <?php nc_content_string('custom_name'); ?>
 
 Again, **custom_name** can be anything you wish. I personally recommend a naming convention of page_content (Example: home_main, home_sidebar, about_contact, all_copyright etc.).
 
@@ -100,11 +96,11 @@ Again, **custom_name** can be anything you wish. I personally recommend a naming
 
 6. Login Link (Optional). You may want to place a link on the page for easy access to the nc-cms login page. If this is the case, use the following line of code.
 
-```<?php nc_login_link(); ?>```
+        <?php nc_login_link(); ?>
 
 Or even simpler:
 
-```<a href="/nc-cms">Login</a>```
+        <a href="/nc-cms">Login</a>
 
 ### Managing Content
 
