@@ -66,11 +66,11 @@ Integrate into any web page file (**.html**, **.htm**, **.php**). If you would l
 
         <?php require('nc-cms/system/start.php'); ?>
 
-2. To enable editing ability on this page, insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (Examples: **home_title**, **about_title**). *TIP:* If you'd like another page to use the same title, use the same **custom_name**.
+2. To enable "title editing", insert the following code inside your `<title>` tag. **custom_name** can be anything you like. Alphanumeric and underscore characters are supported. We personally recommend a naming convention of page_title (Examples: **home_title**, **about_title**). *TIP:* If you'd like another page to use the same title, use the same **custom_name**.
 
         <?php nc_title('custom_name'); ?>
 
-3. Include the CSS used by nc-cms, insert the following code inside of your `<head>` tag.
+3. Include the CSS used by nc-cms: insert the following code inside of your `<head>` tag.
 
         <link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" />
 
@@ -78,7 +78,7 @@ Integrate into any web page file (**.html**, **.htm**, **.php**). If you would l
 
         <?php nc_get_cp(); ?>
 
-5. These lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
+5. The following lines will place editable content areas. These will display any content assigned to them via **custom_name**, and when you are logged in, will enable you to edit the assigned content. If the assigned content does not exist, a placeholder will be created automatically. Insert these anywhere in between your `<body>` tags.
 
     These editable content areas come in two flavours: **HTML** and **string**.
 
