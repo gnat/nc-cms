@@ -328,7 +328,7 @@ class NCCms
 	/** 
 	* Main routine for content editors using the CMS.
 	*/
-	function Run()
+	function Manage()
 	{
 		// Determine which action to take.
 		$action = '';
