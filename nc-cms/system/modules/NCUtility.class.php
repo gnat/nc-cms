@@ -108,7 +108,7 @@ class NCUtility
 		if(isset($_SERVER['HTTP_REFERER']))
 			$output = $_SERVER['HTTP_REFERER'];
 		else
-			$output = NC_WEBSITE_URL.'/';
+			$output = NC_WEBSITE_URL;
 
 		return $output;
 	}
