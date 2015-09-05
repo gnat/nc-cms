@@ -1,11 +1,38 @@
 <?php  if (!defined('NC_BASEPATH')) exit('No direct script access allowed'); 
 
-/*
-	THIS IS CURRENTLY A PLACEHOLDER FILE FOR THE FUTURE!
-*/
-
-/*
-$nc_lang['logout'] = "Logout";
-$nc_lang['edit_page_title'] = "Edit Page Title";
-$nc_lang['login_and_return'] = "Login and Return";
-*/
+define('NC_LANG_ERROR_CONFIG', "NC_CMS_URL in config.php is not set correctly.");
+define('NC_LANG_ERROR_PHP_MANUAL', "See PHP manual for file upload error codes.");
+define('NC_LANG_FILE_INI_SIZE', "File is too large to upload.<br />Increase upload_max_filesize in your servers php.ini file.");
+define('NC_LANG_FILE_NOT_FOUND', "No file selected to upload.");
+define('NC_LANG_FILE_ERROR', "Error uploading file.");
+define('NC_LANG_FILE_REPLACED', "File successfully replaced!");
+define('NC_LANG_FILE_UPLOADED', "File successfully uploaded!");
+define('NC_LANG_FILE_REMOVED', "File successfully removed!");
+define('NC_LANG_FILE_REMOVED_ERROR', "Could not remove file.");
+define('NC_LANG_FILE_REMOVED_ERROR_NOT_FOUND', "Could not remove file. File not found.");
+define('NC_LANG_IMAGE_PREVIEW', "Image Preview");
+define('NC_LANG_UPLOAD', "Upload");
+define('NC_LANG_REMOVE', "Remove");
+define('NC_LANG_SAVE', "Save");
+define('NC_LANG_CANCEL', "Cancel");
+define('NC_LANG_CANCEL_CONFIRM', "Are you sure you want to cancel? Any changes you have made to the web page will not be saved.");
+define('NC_LANG_REDIRECT_WARN', "You have not saved yet. If you leave, your work will not be saved.");
+define('NC_LANG_SAVE_CONFIRM', "Save changes and go live?");
+define('NC_LANG_EDITOR_HTML', "HTML Editor");
+define('NC_LANG_EDITOR_TEXT', "Text Editor");
+define('NC_LANG_EDITOR_FILE', "File Manager");
+define('NC_LANG_EDITOR_INSERT', "Insert to Editor");
+define('NC_LANG_EDITOR_INSERT_FILE', "Upload File or Image");
+define('NC_LANG_EDITOR_HTML_HELP', "Files and images uploaded to ");
+define('NC_LANG_EDITOR_FILE_REMOVE', "Are you sure you want to remove this file?");
+define('NC_LANG_EDITOR_FILE_CHOOSE', "Choose a file or image to upload.");
+define('NC_LANG_EDITOR_FILE_SELECT', "Or select a file from the list to the right.");
+define('NC_LANG_EDITOR_FILE_HELP', "Files and images uploaded to ");
+define('NC_LANG_USERNAME', "Username");
+define('NC_LANG_PASSWORD', "Password");
+define('NC_LANG_LOGIN_RETURN', "Login and Return");
+define('NC_LANG_LOGIN', "Login");
+define('NC_LANG_LOG_OUT', "Log Out");
+define('NC_LANG_BACK_TO', "Back to ");
+define('NC_LANG_EDIT_PAGE_TITLE', "Edit Page Title");
+define('NC_LANG_URL_NOT_CORRECT', "NC_CMS_URL in /nc-cms/config.php is not set correctly.");

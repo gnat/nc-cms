@@ -1,19 +1,19 @@
 <?php
-/* 
-	MYSQL DATABASE SETUP
-	This file is only needed if you intend to use nc-cms database support.
-*/
 
-error_reporting(E_ALL);
+// Setup MySQL Database.
+// This file is only needed if you intend to use nc-cms database support.
+// It may be safely removed after database support is set up.
+
+error_reporting(0);
 require('./config.php');
-require('./system/modules/utility.php');
-	
+require('./system/modules/NCUtility.class.php');
+
 $nc_already_setup = false;
 $nc_db_fail = false;
 $nc_report_error = "";
 $nc_report_tip = "";
 
-// Do database tests		
+// Do database tests.	
 if (!function_exists("mysql_connect"))
 {
 	$nc_report_error = "MySQL support in PHP environment not found. Cannot continue with setup.";
@@ -21,7 +21,7 @@ if (!function_exists("mysql_connect"))
 }
 else
 {
-	// Test database
+	// Test.
 	$nc_db_link = @mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 	if(!$nc_db_link)
 	{
@@ -45,15 +45,15 @@ else
 
 $output = "";
 
-// Determine action to take
+// Determine action to take.
 $action = '';
 if(isset($_GET['action']))
 	$action = $_GET['action'];
 	
-// Good to install
+// Good to install.
 if($action == 'install' && $nc_db_fail == false)
 {
-	// Table creation code
+	// Table creation code.
 	$nc_db_query = "CREATE TABLE `".NC_DB_DATABASE."`.`".NC_DB_PREFIX."content` (
 					  `id` INTEGER UNSIGNED NOT NULL AUTO_INCREMENT,
 					  `name` VARCHAR(80),
@@ -69,36 +69,35 @@ if($action == 'install' && $nc_db_fail == false)
 	{
 		if(mysql_select_db(NC_DB_DATABASE, $nc_db_link))
 		{
-			if(!mysql_query($nc_db_query, $nc_db_link)) // Check for query errors
-				$output .= nc_report_error("MySQL reported: ".mysql_error(), true);
+			if(!mysql_query($nc_db_query, $nc_db_link)) // Check for query errors.
+				$output .= NCUtility::Error("MySQL reported: ".mysql_error());
 		}
 		else
-			$output .= nc_report_error("MySQL reported: ".mysql_error(), true);
+			$output .= NCUtility::Error("MySQL reported: ".mysql_error());
 	}
 	else
-		$output .= nc_report_error("MySQL reported: ".mysql_error(), true);
+		$output .= NCUtility::Error("MySQL reported: ".mysql_error());
 
 	if($nc_db_link)
-		mysql_close($nc_db_link); // Close connection
+		mysql_close($nc_db_link); // Close connection.
 	
-	// Refresh page if no errors were reported
+	// Refresh page if no errors were reported.
 	if($output == "")
 	{
-		$location = nc_get_cms_url().'/'.basename(__FILE__); // Load default installer page
+		$location = NC_CMS_URL.'/'.basename(__FILE__); // Load default installer page.
 		header('Location: '.$location);
 	}
 }
-else // DEFAULT: Retrieve login page
+else // DEFAULT: Retrieve login page.
 {
-
 	$output .= '<p>Welcome to the nc-cms MySQL database setup. This script will install the appropriate database tables for use with nc-cms.</p>';
 	
 	if($nc_db_fail)
 	{
 		if($nc_report_error != "")
-			$output .= nc_report_error($nc_report_error, true);
+			$output .= NCUtility::Error($nc_report_error);
 		if($nc_report_tip != "")
-			$output .= nc_report_tip($nc_report_tip, true);
+			$output .= NCUtility::Tip($nc_report_tip);
 			
 		$output .= '<p>You may delete this file if you do not plan to use nc-cms\'s database support.</p>';
 	}
@@ -115,20 +114,19 @@ else // DEFAULT: Retrieve login page
 }
 ?>
 	
-<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">	
-<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" >
+<!DOCTYPE html>
+<html lang="en">
 	<head>
 		<title>nc-cms | MySQL Database Setup</title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<meta name="robots" content="noindex" />
 		<meta name="robots" content="nofollow" />
 		<link rel="stylesheet" type="text/css" media="screen" href="system/css/setup.css"/>
-		<!--[if lt IE 7]><link rel="stylesheet" type="text/css" media="screen" href="system/css/ie.css"/><![endif]-->
 	</head>
 	<body>
 		<div id="wrapper">
 			<div id="login">
-				<h1><a href="http://nc-cms.sourceforge.net/" title="Powered by nc-cms" target="_blank"><?php echo NC_WEBSITE_NAME; ?></a>
+				<h1><a href="https://github.com/gnat/nc-cms" title="Powered by nc-cms" target="_blank"><?php echo NC_WEBSITE_NAME; ?></a>
 				</h1>
 				<div style="padding: 0 14px 0 14px;">
 				
