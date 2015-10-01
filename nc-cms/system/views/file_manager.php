@@ -8,7 +8,7 @@
 		<meta name="robots" content="nofollow" />
 		<link rel="stylesheet" type="text/css" media="screen" href="system/css/editor.css"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="system/css/editor_file_manager.css"/>
-		<script type="text/javascript" src="system/modules/jquery.js"></script>
+		<script type="text/javascript" src="system/js/jquery.js"></script>
 		<script type="text/javascript">
 		function get_filename(str)
 		{

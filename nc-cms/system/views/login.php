@@ -5,7 +5,7 @@
 		<title>nc-cms | <?php echo NC_LANG_LOGIN; ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
 		<link rel="stylesheet" type="text/css" media="screen" href="system/css/login.css"/>
-		<script type="text/javascript" src="system/modules/jquery.js"></script>
+		<script type="text/javascript" src="system/js/jquery.js"></script>
 		<script type="text/javascript">
 		function keypress_action(event)
 		{
