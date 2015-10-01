@@ -1,11 +1,11 @@
 Embeddable, lightweight PHP CMS.
 ================================
 
-Website "add-on" style integration, while retaining the most important features of a modern day CMS: User login, file uploads, edit of content areas and page titles.
+Website "add-on" integration, while retaining the most important features of a modern day CMS: User login, file uploads, edit of content areas and page titles.
 
 Can optionally use a database for content storage (MySQL, etc.) However, a database is not required, and nc-cms uses fast flat file storage by default.
 
-For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and produced by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license.
+Designed and maintained by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license.
 
 ### Some kind words from the community...
 
@@ -24,25 +24,24 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 **Editor**
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
-[...](#instructions)
 
 ### Integration Example
 ```php
-<?php require('nc-cms/system/start.php'); ?> <!-- #1 Include CMS header. -->
+<?php require('nc-cms/system/start.php'); $cms = new NCCms(); ?> <!-- #1 Include CMS header. -->
 <!DOCTYPE html>
 <html lang="en">
 	<head>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php nc_title('home_title'); ?></title> <!-- #2 Allow website title editing. -->
-		<link rel="stylesheet" type="text/css" media="screen" href="<?php nc_get_cp_css_directory(); ?>" /> <!-- #3 Include CSS. -->
+		<title><?php $cms->Title('home_title'); ?></title> <!-- #2 Allow website title editing. -->
+		<link rel="stylesheet" type="text/css" media="screen" href="<?php $cms->CSS(); ?>" /> <!-- #3 Include CSS. -->
 	</head>
 	<body>
-		<?php nc_get_cp(); ?> <!-- #4 Include CMS control panel. -->
+		<?php $cms->ControlPanel(); ?> <!-- #4 Include CMS control panel. -->
 		<div class="content">
-			<?php nc_content_html('home_content'); ?> <!-- #5 Add editable content area. -->
+			<?php $cms->ContentHTML('home_content'); ?> <!-- #5 Add editable content area. -->
 		</div>
 		<div class="footer">
-			<?php nc_login_link(); ?> <!-- #6 Generate login link. -->
+			<?php $cms->LoginLink(); ?> <!-- #6 Generate login link. -->
 		</div>
 	</body>
 </html>
@@ -50,20 +49,20 @@ For documentation, see: http://www.nconsulting.ca/nc-cms nc-cms was designed and
 
 ### Installation
 
-1. Use **git clone https://github.com/gnat/nc-cms.git** or [download a zip](https://github.com/gnat/nc-cms/archive/master.zip).
+1. Use **git clone https://github.com/gnat/nc-cms.git master** or [download a zip](https://github.com/gnat/nc-cms/archive/master.zip).
 
 2. Edit **/nc-cms/config.php**. Be sure to set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to **true** and configure the database connectivity settings as well.
 
 3. Copy over your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
 
-4. If you're using database support, run **/nc-cms/setup_database_mysql.php** from your web server now.
+4. If you're using database support, run **/nc-cms/setup_database_mysql.php** from your web server.
 
 5. Installation complete! Move onto the next section to integrate your first page.
 
 
 ### Integration
 
-Integrate into any web page file (**.php**, **.html**, **.htm**). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also remember to change your internal links to **.php** where necessary.)
+Any web page file will work (**.php**, **.html**, **.htm**). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also remember to change your internal links to **.php** where necessary.)
 
 1. To activate nc-cms on a page, insert the following code before your opening `<html>` tag. It is possible that you may need to change this path depending on where you've uploaded nc-cms.
 
@@ -73,7 +72,7 @@ Integrate into any web page file (**.php**, **.html**, **.htm**). If you would l
 
 	*TIP:* If you'd like another page to use the same title, use the same **custom_name**.
 
-        <title><?php $cms->Title('custom_name'); ?></title>
+        <?php $cms->Title('custom_name'); ?>
 
 3. Include the CSS used by nc-cms: insert the following code inside of your `<head>` tag.
 
