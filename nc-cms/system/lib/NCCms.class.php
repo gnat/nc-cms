@@ -89,10 +89,10 @@ class NCCms
 			if($db_fail)
 				exit();
 	
-			require(NC_BASEPATH.'/modules/storage/MySQL.php');
+			require(NC_BASEPATH.'/lib/storage/MySQL.php');
 		}
 		else
-			require(NC_BASEPATH.'/modules/storage/Filesystem.php');
+			require(NC_BASEPATH.'/lib/storage/Filesystem.php');
 
 		$this->storage = new Storage();
 	}

@@ -6,7 +6,7 @@
 
 error_reporting(0);
 require('./config.php');
-require('./system/modules/NCUtility.class.php');
+require('./system/lib/NCUtility.class.php');
 
 $nc_already_setup = false;
 $nc_db_fail = false;

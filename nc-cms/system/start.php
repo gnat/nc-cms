@@ -16,9 +16,9 @@ define('NC_BASEPATH', realpath(dirname(__FILE__)));
 
 // Include the nc-cms system.
 require(NC_BASEPATH.'/../config.php');
-require(NC_BASEPATH.'/modules/NCUtility.class.php');
-require(NC_BASEPATH.'/modules/NCLogin.class.php');
-require(NC_BASEPATH.'/modules/NCCms.class.php');
+require(NC_BASEPATH.'/lib/NCUtility.class.php');
+require(NC_BASEPATH.'/lib/NCLogin.class.php');
+require(NC_BASEPATH.'/lib/NCCms.class.php');
 
 // Select and load language pack. 
 // Currently only english is available. More can be added here.
