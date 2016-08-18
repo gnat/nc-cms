@@ -1,11 +1,40 @@
 Embeddable, lightweight PHP CMS.
 ================================
 
-Website "add-on" integration, while retaining the most important features of a modern day CMS: User login, file uploads, edit of content areas and page titles.
+Website "add-on" style integration. Retains the most important features of a modern day CMS: User login, file uploads, edit of content areas and page titles.
 
-Can optionally use a database for content storage (MySQL, etc.) However, a database is not required, and nc-cms uses fast flat file storage by default.
+Optionally use a database for content storage (MySQL, etc.) However, a database is not required: a very fast flat file storage system is used by default.
 
-Designed and maintained by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license.
+### Integration Sample
+```php
+<?php require('nc-cms/system/start.php'); $cms = new NCCms(); ?> <!-- #1 Include CMS header. -->
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+        <title><?php $cms->Title('home_title'); ?></title> <!-- #2 Allow website title editing. -->
+        <link rel="stylesheet" type="text/css" media="screen" href="<?php $cms->CSS(); ?>" /> <!-- #3 Include CSS. -->
+    </head>
+    <body>
+        <?php $cms->ControlPanel(); ?> <!-- #4 Include CMS control panel. -->
+        <div class="content">
+            <?php $cms->ContentHTML('home_content'); ?> <!-- #5 Add editable content area. -->
+        </div>
+        <div class="footer">
+            <?php $cms->LoginLink(); ?> <!-- #6 Generate login link. -->
+        </div>
+    </body>
+</html>
+```
+
+**Login**
+<img src="http://i.imgur.com/CFfEaFg.png" alt="nc-cms Screenshot 2" />
+
+**Editor**
+<img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
+
+**Sample Website**
+<img src="http://i.imgur.com/I8Kktc2.png" alt="nc-cms Screenshot 1" />
 
 ### Some kind words from the community...
 
@@ -14,38 +43,6 @@ Designed and maintained by Nathaniel Sabanski of NConsulting.ca. Licensed under 
 > "Overall, a very quick way to start up a stable, dynamic site with minimal overhead!"
 
 > "Thanks for such a killer cms that is so simple.. great concept!"
-
-**Sample Website**
-<img src="http://i.imgur.com/I8Kktc2.png" alt="nc-cms Screenshot 1" />
-
-**Login**
-<img src="http://i.imgur.com/CFfEaFg.png" alt="nc-cms Screenshot 2" />
-
-**Editor**
-<img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
-
-
-### Integration Example
-```php
-<?php require('nc-cms/system/start.php'); $cms = new NCCms(); ?> <!-- #1 Include CMS header. -->
-<!DOCTYPE html>
-<html lang="en">
-	<head>
-		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-		<title><?php $cms->Title('home_title'); ?></title> <!-- #2 Allow website title editing. -->
-		<link rel="stylesheet" type="text/css" media="screen" href="<?php $cms->CSS(); ?>" /> <!-- #3 Include CSS. -->
-	</head>
-	<body>
-		<?php $cms->ControlPanel(); ?> <!-- #4 Include CMS control panel. -->
-		<div class="content">
-			<?php $cms->ContentHTML('home_content'); ?> <!-- #5 Add editable content area. -->
-		</div>
-		<div class="footer">
-			<?php $cms->LoginLink(); ?> <!-- #6 Generate login link. -->
-		</div>
-	</body>
-</html>
-```
 
 ### Installation
 
@@ -133,3 +130,7 @@ You may want to upgrade your version of nc-cms down the road.
 3. Re-upload your **config.php** file and **/content** directory to the new nc-cms installation. Replace as necessary.
 
 4. Upgrade complete! You can confirm your update by logging into nc-cms. The version number is displayed in the top-left of the menu bar. Remember, you may need to explicitly clear your browser cache after the update in order to see all of the changes.
+
+### Credits and License
+
+Designed and maintained by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license.
