@@ -1,9 +1,13 @@
 Embeddable, lightweight PHP CMS.
 ================================
 
-Website "add-on" style integration. Retains the most important features of a modern day CMS: User login, file uploads, edit of content areas and page titles.
+Website "add-on" style integration. Retains the most important features of a modern day CMS: 
 
-Optionally use a database for content storage (MySQL, etc.) However, a database is not required: a very fast flat file storage system is used by default.
+* User login.
+* File uploads. 
+* Edit website content.
+
+Optionally use a database for content storage (such as MySQL) However, a database is not required, and a fast flat file storage is used as default.
 
 ### Integration Sample
 ```php
@@ -27,13 +31,13 @@ Optionally use a database for content storage (MySQL, etc.) However, a database 
 </html>
 ```
 
-**Login**
+### Login Screenshot
 <img src="http://i.imgur.com/CFfEaFg.png" alt="nc-cms Screenshot 2" />
 
-**Editor**
+### Editor Screenshot
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
-**Sample Website**
+### Sample Website Screenshot
 <img src="http://i.imgur.com/I8Kktc2.png" alt="nc-cms Screenshot 1" />
 
 ### Some kind words from the community...
