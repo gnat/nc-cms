@@ -1,11 +1,11 @@
-Embeddable, lightweight PHP CMS.
+Embeddable, lightweight, simple PHP CMS.
 ================================
 
 Website "add-on" style integration. Retains the most important features of a modern day CMS: 
 
 * User login.
 * File uploads. 
-* Edit website content.
+* Edit content and page titles.
 
 Optionally use a database for content storage (such as MySQL) However, a database is not required, and a fast flat file storage is used as default.
 
