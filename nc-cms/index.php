@@ -1,6 +1,6 @@
 <?php
 
-// Log in page and CMS management. Access by visiting this directory.
+// Will display the log in page for CMS management.
 
 require('system/start.php');
 

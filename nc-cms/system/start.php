@@ -1,7 +1,7 @@
 <?php
 
+// Bootstrap file for nc-cms. 
 // Embed nc-cms into your website by including this file.
-// This is where the magic happens.
 define('NC_VERSION', '3.2.1');
 define('NC_UPLOAD_DIRECTORY', './content/upload/');
 
