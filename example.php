@@ -1,10 +1,8 @@
 /**
 * Example web page with nc-cms integrated.
-*
 * Copy the /nc-cms directory to your web server to install nc-cms.
 *
 * For full documentation see the nc-cms website.
-*
 * @link http://github.com/gnat/nc-cms
 */
 
