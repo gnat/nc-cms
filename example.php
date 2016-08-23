@@ -1,11 +1,10 @@
+<?php
 /**
 * Example web page with nc-cms integrated.
-* Copy the /nc-cms directory to your web server to install nc-cms.
-*
 * For full documentation see the nc-cms website.
 * @link http://github.com/gnat/nc-cms
 */
-
+?>
 <?php require('nc-cms/system/start.php'); $cms = new NCCms(); ?> <!-- #1 Include CMS header. -->
 <!DOCTYPE html>
 <html lang="en">
