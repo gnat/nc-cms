@@ -97,7 +97,7 @@ Any web page file will work (**.php**, **.html**, **.htm**). If you would like t
 
     Create a String area like this:
 
-        <?php $cms->ContentText('custom_name'); ?>
+        <?php $cms->ContentString('custom_name'); ?>
 
     Again, **custom_name** can be anything you wish. I personally recommend a naming convention of page_content (Example: home_main, home_sidebar, about_contact, all_copyright etc.).
 
