@@ -2,7 +2,7 @@
 
 // Bootstrap file for nc-cms. 
 // Embed nc-cms into your website by including this file.
-define('NC_VERSION', '3.2.2');
+define('NC_VERSION', '3.3');
 define('NC_UPLOAD_DIRECTORY', './content/upload/');
 
 // Error Reporting Level.

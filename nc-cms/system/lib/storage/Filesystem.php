@@ -39,7 +39,7 @@ class Storage
 	* USED INTERNALLY. Check content file to see if it exists. And if it doesn't, create it. $path contains the file path, $default contains the default text to go in the file if it is new.
 	* @param string $name Content area name.
 	*/
-	function ContentCheck($path, $name)
+	function ContentCheck($path, $default)
 	{
 		// If file doesn't exist yet or is of 0 length, create and write something in it.
 		if (!file_exists($path) || !filesize($path)) 
