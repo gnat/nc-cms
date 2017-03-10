@@ -9,7 +9,7 @@ Website "add-on" style integration. Retains the most important features of a mod
 
 Optionally use a database for content storage (such as MySQL) However, a database is not required, and a fast flat file storage is used as default.
 
-### Integration Sample
+### Integration Sample.
 ```php
 <?php require('nc-cms/system/start.php'); $cms = new NCCms(); ?> <!-- #1 Include CMS header. -->
 <!DOCTYPE html>
@@ -31,13 +31,13 @@ Optionally use a database for content storage (such as MySQL) However, a databas
 </html>
 ```
 
-### Login Screenshot
+### Login Screenshot.
 <img src="http://i.imgur.com/CFfEaFg.png" alt="nc-cms Screenshot 2" />
 
-### Editor Screenshot
+### Editor Screenshot.
 <img src="http://i.imgur.com/kd5S8I9.png" alt="nc-cms Screenshot 3" />
 
-### Sample Website Screenshot
+### Sample Website Screenshot.
 <img src="http://i.imgur.com/I8Kktc2.png" alt="nc-cms Screenshot 1" />
 
 ### Some kind words from the community...
@@ -48,20 +48,22 @@ Optionally use a database for content storage (such as MySQL) However, a databas
 
 > "Thanks for such a killer cms that is so simple.. great concept!"
 
-### Installation
+### Installation.
 
-1. Use **git clone https://github.com/gnat/nc-cms.git master** or [download a zip](https://github.com/gnat/nc-cms/archive/master.zip).
+1. Create an empty directory and switch into it.
 
-2. Edit **/nc-cms/config.php**. Be sure to set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to **true** and configure the database connectivity settings as well.
+2. Either use **git clone https://github.com/gnat/nc-cms.git .** or [download a zip](https://github.com/gnat/nc-cms/archive/master.zip) and extract it inside.
 
-3. Copy over your newly configured **/nc-cms** to your web server. Upload it to where **NC_CMS_URL** points to from your **/nc-cms/config.php** file. The root of your website domain is recommended (**http://www.example.com/nc-cms/**).
+3. Edit **/nc-cms/config.php**. Set all of the general settings. If you would like to use nc-cms's database support (optional), set **NC_USE_DB** to **true** and configure the database connectivity settings.
 
-4. If you're using database support, run **/nc-cms/setup_database_mysql.php** from your web server.
+4. Copy your new project to your web server. Upload it where **NC_CMS_URL** refers to from **/nc-cms/config.php**. The root of your domain is recommended (**http://www.example.com/nc-cms/** or **http://localhost/nc-cms**).
 
-5. Installation complete! Move onto the next section to integrate your first page.
+5. Optionally, if you're using database support, visit **/nc-cms/setup_database_mysql.php** from your server in your web browser.
+
+6. Installation complete!
 
 
-### Integration
+### Integration with an existing website.
 
 Any web page file will work (**.php**, **.html**, **.htm**). If you would like to use it with an **.html** or **.htm** file, first convert it to **.php** by changing the file extension. (Also remember to change your internal links to **.php** where necessary.)
 
@@ -111,7 +113,7 @@ Any web page file will work (**.php**, **.html**, **.htm**). If you would like t
 
         <a href="/nc-cms">Login</a>
 
-### Managing Content
+### Managing Content.
 
 1. Visit the page you would like to edit (you will be re-directed here after login).
 
@@ -123,7 +125,7 @@ Any web page file will work (**.php**, **.html**, **.htm**). If you would like t
 
 5. Logout! Logging out is essential for preventing unauthorized changes to your website by anyone using the same computer.
 
-### Upgrading
+### Upgrading.
 
 You may want to upgrade your version of nc-cms down the road.
 
@@ -135,6 +137,6 @@ You may want to upgrade your version of nc-cms down the road.
 
 4. Upgrade complete! You can confirm your update by logging into nc-cms. The version number is displayed in the top-left of the menu bar. Remember, you may need to explicitly clear your browser cache after the update in order to see all of the changes.
 
-### Credits and License
+### Credits and License.
 
 Designed and maintained by Nathaniel Sabanski of NConsulting.ca. Licensed under the zlib/libpng license.
