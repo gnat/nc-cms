@@ -5,5 +5,7 @@
 */
 require('system/start.php');
 
+$_GET = filter_input_array(INPUT_GET, FILTER_SANITIZE_EMAIL);
+
 $cms = new NCCms();
 $cms->Manage();
