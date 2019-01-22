@@ -10,6 +10,7 @@ define('NC_LANG_FILE_UPLOADED', "File successfully uploaded!");
 define('NC_LANG_FILE_REMOVED', "File successfully removed!");
 define('NC_LANG_FILE_REMOVED_ERROR', "Could not remove file.");
 define('NC_LANG_FILE_REMOVED_ERROR_NOT_FOUND', "Could not remove file. File not found.");
+define('NC_LANG_FILE_ERROR_PHP_TYPE', "Could not upload file with PHP extension.");
 define('NC_LANG_IMAGE_PREVIEW', "Image Preview");
 define('NC_LANG_UPLOAD', "Upload");
 define('NC_LANG_REMOVE', "Remove");
