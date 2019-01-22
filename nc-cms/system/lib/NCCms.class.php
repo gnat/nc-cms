@@ -418,18 +418,27 @@ class NCCms
 			else
 			{
 				$replacing_file = false;
-				
+
 				if(file_exists(NC_UPLOAD_DIRECTORY.$_FILES['file']['name']))
 					$replacing_file = true;
-					
-				move_uploaded_file($_FILES['file']['tmp_name'], NC_UPLOAD_DIRECTORY.$_FILES['file']['name']); // Write the file
-				
-				if($replacing_file)
-					$status_message = NC_LANG_FILE_REPLACED.'<br /><strong>'.$_FILES['file']['name'].' ('.NCUtility::ReturnStringSize($_FILES['file']['size']).')</strong>';
+
+				// Disallow PHP file uploads.
+				$test = strrev(trim(strtolower($_FILES['file']['name'])));
+				if (stripos($test, "php") === 0)
+				{
+					$status_message = NC_LANG_FILE_ERROR_PHP_TYPE;
+				}
 				else
-					$status_message = NC_LANG_FILE_UPLOADED.'<br /><strong>'.$_FILES['file']['name'].' ('.NCUtility::ReturnStringSize($_FILES['file']['size']).')</strong>';
+				{
+					move_uploaded_file($_FILES['file']['tmp_name'], NC_UPLOAD_DIRECTORY.$_FILES['file']['name']); // Write the file
+
+					if($replacing_file)
+						$status_message = NC_LANG_FILE_REPLACED.'<br /><strong>'.$_FILES['file']['name'].' ('.NCUtility::ReturnStringSize($_FILES['file']['size']).')</strong>';
+					else
+						$status_message = NC_LANG_FILE_UPLOADED.'<br /><strong>'.$_FILES['file']['name'].' ('.NCUtility::ReturnStringSize($_FILES['file']['size']).')</strong>';
+				}
 			}
-			
+
 			include(NC_BASEPATH.'/views/file_manager.php'); // Load file manager view.
 		}
 		else if($action == 'file_manager_remove')
