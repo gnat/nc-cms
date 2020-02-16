@@ -16,17 +16,17 @@ class Storage
 	{
 		$this->ContentCheck($name, "Edit Me!"); // Make sure database entry exists.
 
-		$this->db_link = @mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+		$this->db_link = @mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 		$this->db_link = $this->DatabaseLink($this->db_link, NC_DB_DATABASE);
-		$db_result = mysql_query("UPDATE ".NC_DB_PREFIX."content SET content='".$this->EscapeString($data)."' WHERE name='".$name."'", $this->db_link);
+		$db_result = mysqli_query($this->db_link, "UPDATE ".NC_DB_PREFIX."content SET content='".$this->EscapeString($this->db_link, $data)."' WHERE name='".$name."'");
 		
 		if(!$db_result) // Check for query errors.
 		{
-			NCUtility::Error("MySQL reported: ".mysql_error());
+			NCUtility::Error("MySQL reported: ".mysqli_error($this->db_link));
 			exit();
 		}
 		
-		mysql_close($this->db_link); // Close connection.
+		mysqli_close($this->db_link); // Close connection.
 	}
 
 	/**
@@ -38,20 +38,20 @@ class Storage
 	{
 		$this->ContentCheck($name, "Edit Me! (".$name.")"); // Make sure database entry exists.
 
-		$this->db_link = mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+		$this->db_link = mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 		$this->db_link = $this->DatabaseLink($this->db_link, NC_DB_DATABASE);
-		$db_result = mysql_query("SELECT name,content FROM ".NC_DB_PREFIX."content WHERE name='".$name."'", $this->db_link);
+		$db_result = mysqli_query($this->db_link, "SELECT name,content FROM ".NC_DB_PREFIX."content WHERE name='".$name."'");
 		
 		if(!$db_result) // Check for query errors.
 		{
-			NCUtility::Error("MySQL reported: ".mysql_error());
+			NCUtility::Error("MySQL reported: ".mysqli_error($this->db_link));
 			exit();
 		}
 			
-		$row = mysql_fetch_row($db_result);
+		$row = mysqli_fetch_row($db_result);
 		$data = $row[1];
 		
-		mysql_close($this->db_link); // Close connection.
+		mysqli_close($this->db_link); // Close connection.
 
 		return $data;
 	}
@@ -64,35 +64,35 @@ class Storage
 	{
 		$create_entry = false;
 
-		$this->db_link = mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+		$this->db_link = mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 		$this->db_link = $this->DatabaseLink($this->db_link, NC_DB_DATABASE);
-		$db_result = mysql_query("SELECT name FROM ".NC_DB_PREFIX."content WHERE name='".$name."'", $this->db_link);
+		$db_result = mysqli_query($this->db_link, "SELECT name FROM ".NC_DB_PREFIX."content WHERE name='".$name."'");
 		
 		if(!$db_result) // Check for query errors.
 		{
-			NCUtility::Error("MySQL reported: ".mysql_error());
+			NCUtility::Error("MySQL reported: ".mysqli_error($this->db_link));
 			exit();
 		}
 		
 		// See if a row exsists
-		if(mysql_num_rows($db_result) < 1)
+		if(mysqli_num_rows($db_result) < 1)
 			$create_entry = true;
 		
-		mysql_close($this->db_link); // Close connection.
+		mysqli_close($this->db_link); // Close connection.
 		
 		if ($create_entry) // No entries existed. Create one instead.
 		{
-			$this->db_link = mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+			$this->db_link = mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 			$this->db_link = $this->DatabaseLink($this->db_link, NC_DB_DATABASE);
-			$db_result = mysql_query("INSERT INTO ".NC_DB_PREFIX."content (name,content) VALUES ('".$name."','".$default."')");
+			$db_result = mysqli_query($this->db_link, "INSERT INTO ".NC_DB_PREFIX."content (name,content) VALUES ('".$name."','".$default."')");
 			
 			if(!$db_result) // Check for query errors.
 			{
-				NCUtility::Error("MySQL reported: ".mysql_error());
+				NCUtility::Error("MySQL reported: ".mysqli_error($this->db_link));
 				exit();
 			}
 			
-			mysql_close($this->db_link); // Close connection.
+			mysqli_close($this->db_link); // Close connection.
 		}
 	}
 
@@ -104,17 +104,17 @@ class Storage
 	{
 		if ($link)
 		{
-			if (mysql_select_db($_database, $link))
+			if (mysqli_select_db($link, $_database))
 				return $link;
 			else
 			{
-				NCUtility::Error("MySQL reported: ".mysql_error());
+				NCUtility::Error("MySQL reported: ".mysqli_error($link));
 				exit();
 			}
 		}
 		else
 		{
-			NCUtility::Error("MySQL reported: ".mysql_error());
+			NCUtility::Error("MySQL reported: ".mysqli_error($link));
 			exit();
 		}
 	}
@@ -123,10 +123,10 @@ class Storage
 	* USED INTERNALLY. Escapes the string passed to it for secuirty.
 	* @param string $name Content area name.
 	*/
-	function EscapeString($string)
+	function EscapeString($link, $string)
 	{
 		if(get_magic_quotes_gpc())
 			$string = stripslashes($string); // Remove PHP magic quotes because we don't want to double-escape.	
-		return mysql_real_escape_string($string);
+		return mysqli_real_escape_string($link, $string);
 	}
 }

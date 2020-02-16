@@ -52,7 +52,7 @@ class NCCms
 			$db_fail = false;
 			
 			// Test for database support
-			if (!function_exists("mysql_connect"))
+			if (!function_exists("mysqli_connect"))
 			{
 				nc_report_error("MySQL support in PHP environment not found. You can switch to filesystem storage by turning off database support in your /nc-cms/config.php file.");
 				$db_fail = true;
@@ -60,29 +60,29 @@ class NCCms
 			else
 			{
 				// Support exists, test database.
-				$db_link = @mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
-				if(!$db_link)
+				$db_link = @mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+				if (mysqli_connect_errno())
 				{
-					$this->Error("MySQL reported: ".mysql_error());
-					$this->Tip("Double check to make sure that your database settings (host, user, password) found in <strong>/nc-cms/config.php</strong> are complete and correct. It's also possible that your host's database server may be down.");
-					$db_fail = true;
+					$nc_report_error = "MySQL reported: ".mysqli_connect_error();
+					$nc_report_tip = "Double check to make sure that your database settings (host, user, password) found in <strong>/nc-cms/config.php</strong> are complete and correct. It's also possible that your host's database server may be down. If this is the case, contact your host.";
+					$nc_db_fail = true;
 				}
-				else if(!mysql_select_db(NC_DB_DATABASE, $db_link))
+				else if(!mysqli_select_db($db_link, NC_DB_DATABASE))
 				{
-					$this->Error("MySQL reported: ".mysql_error());
+					$this->Error("MySQL reported: ".mysqli_error($db_link));
 					$this->Tip("We were able to connect to the database server, but could not select your specified database. Double check to make sure that database settings (user, password, database name)  found in <strong>/nc-cms/config.php</strong> are complete and correct. Double check to make sure your specified user and database exists on the database server. If you are having troubles setting up your database, you should contact your host.");
 					$db_fail = true;
 				}
-				else if(!mysql_query("SELECT name FROM ".NC_DB_PREFIX."content"))
+				else if(!mysqli_query($db_link, "SELECT name FROM ".NC_DB_PREFIX."content"))
 				{
-					$this->Error("MySQL reported: ".mysql_error());
+					$this->Error("MySQL reported: ".mysqli_error($db_link));
 					$this->Tip("We were able to connect to the database server and select your specified database, but could not find the appropriate nc-cms tables. Double check your database prefix setting (NC_DB_PREFIX) in your /nc-cms/config.php file.");
 					$this->Tip("If the tables do not exsist, run the nc-cms MySQL database setup script found at /nc-cms/setup_database_mysql.php in order to create them.");
 					$db_fail = true;	
 				}
 				
 				if($db_link)
-					mysql_close($db_link);
+					mysqli_close($db_link);
 			}
 			
 			// Exit if any tests failed.
@@ -438,7 +438,7 @@ class NCCms
 						$status_message = NC_LANG_FILE_UPLOADED.'<br /><strong>'.$_FILES['file']['name'].' ('.NCUtility::ReturnStringSize($_FILES['file']['size']).')</strong>';
 				}
 			}
-
+			
 			include(NC_BASEPATH.'/views/file_manager.php'); // Load file manager view.
 		}
 		else if($action == 'file_manager_remove')
