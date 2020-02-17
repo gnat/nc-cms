@@ -6,8 +6,16 @@ Website "add-on" style integration. Retains the most important features of a mod
 * User login.
 * File uploads. 
 * Edit content and page titles.
+* PHP 7 and up.
 
-Optionally use a database for content storage (such as MySQL) However, a database is not required, and a fast flat file storage is used as default.
+**No database required.** A very fast flat file storage is used by default. A database is optional.
+
+If you prefer to use a database backend, MySQL is available. You can also use anything else supported by PHP PDO.
+
+Language support:
+
+* English
+* German
 
 ### Integration Sample.
 ```php
