@@ -28,7 +28,7 @@
 		<div id="wrapper">
 			<div id="login">
 				<h1 title="Powered by nc-cms"><?php echo NC_WEBSITE_NAME; ?></h1>
-				<form name="loginform" id="loginform" method="post" action="<?php echo NCUtility::Referrer(); ?>/">	
+				<form name="loginform" id="loginform" method="post" action="<?php echo NCUtility::Referrer(); ?>">	
 					<p>
 						<label for="user" class="label"><?php echo NC_LANG_USERNAME; ?></label><br />
 						<input type="text" name="user" id="user" class="textfield" size="24" />

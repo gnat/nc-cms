@@ -63,7 +63,7 @@
 
 			function open_file_manager() 
 			{
-				window.open('index.php?action=file_manager','insert_file','width=640,height=460,screenX=200,left=200,screenY=200,top=200,status=yes,menubar=no');
+				window.open('index.php?action=file_manager','insert_file','width=640,height=490,screenX=200,left=200,screenY=200,top=200,status=yes,menubar=no');
 			}		
 		</script>
 	</head>
