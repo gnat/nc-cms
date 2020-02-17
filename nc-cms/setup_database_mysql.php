@@ -14,33 +14,33 @@ $nc_report_error = "";
 $nc_report_tip = "";
 
 // Do database tests.	
-if (!function_exists("mysql_connect"))
-{
-	$nc_report_error = "MySQL support in PHP environment not found. Cannot continue with setup.";
-	$nc_db_fail = true;
-}
-else
-{
-	// Test.
-	$nc_db_link = @mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
-	if(!$nc_db_link)
+	if (!function_exists("mysqli_connect"))
 	{
-		$nc_report_error = "MySQL reported: ".mysql_error();
+		$nc_report_error = "MySQL support in PHP environment not found. Cannot continue with setup.";
+		$nc_db_fail = true;
+	}
+	else
+	{
+	// Test.
+	$nc_db_link = @mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+	if (mysqli_connect_errno())
+	{
+		$nc_report_error = "MySQL reported: ".mysqli_connect_error();
 		$nc_report_tip = "Double check to make sure that your database settings (host, user, password) found in <strong>/nc-cms/config.php</strong> are complete and correct. It's also possible that your host's database server may be down. If this is the case, contact your host.";
 		$nc_db_fail = true;
 	}
-	else if(!mysql_select_db(NC_DB_DATABASE, $nc_db_link))
+	else if(!mysqli_select_db( $nc_db_link, NC_DB_DATABASE))
 	{
-		$nc_report_error = "MySQL reported: ".mysql_error();
+		$nc_report_error = "MySQL reported: ".mysqli_error($nc_db_link);
 		$nc_report_tip = "We were able to connect to the database server, but could not select your specified database. Double check to make sure that database settings (user, password, database name)  found in <strong>/nc-cms/config.php</strong> are complete and correct. Double check to make sure your specified user and database exists on the database server. If you are having troubles setting up your database, you should contact your host.";
 		$nc_db_fail = true;
 	}
-	else if(mysql_query("SELECT name FROM ".NC_DB_PREFIX."content"))
+	else if(mysqli_query($nc_db_link, "SELECT name FROM ".NC_DB_PREFIX."content"))
 	{
 		$nc_already_setup = true;
 	}
 	if($nc_db_link)
-		mysql_close($nc_db_link);
+		mysqli_close($nc_db_link);
 }
 
 $output = "";
@@ -63,23 +63,23 @@ if($action == 'install' && $nc_db_fail == false)
 					ENGINE = InnoDB
 					CHARACTER SET utf8 COLLATE utf8_general_ci;";
 
-	$nc_db_link = mysql_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
+	$nc_db_link = mysqli_connect(NC_DB_HOST, NC_DB_USER, NC_DB_PASSWORD);
 	
 	if($nc_db_link)
 	{
-		if(mysql_select_db(NC_DB_DATABASE, $nc_db_link))
+		if(mysqli_select_db($nc_db_link, NC_DB_DATABASE))
 		{
-			if(!mysql_query($nc_db_query, $nc_db_link)) // Check for query errors.
-				$output .= NCUtility::Error("MySQL reported: ".mysql_error());
+			if(!mysqli_query($nc_db_link, $nc_db_query)) // Check for query errors.
+				$output .= NCUtility::Error("MySQL reported: ".mysqli_error($nc_db_link));
 		}
 		else
-			$output .= NCUtility::Error("MySQL reported: ".mysql_error());
+			$output .= NCUtility::Error("MySQL reported: ".mysqli_error($nc_db_link));
 	}
 	else
-		$output .= NCUtility::Error("MySQL reported: ".mysql_error());
+		$output .= NCUtility::Error("MySQL reported: ".mysqli_error($nc_db_link));
 
 	if($nc_db_link)
-		mysql_close($nc_db_link); // Close connection.
+		mysqli_close($nc_db_link); // Close connection.
 	
 	// Refresh page if no errors were reported.
 	if($output == "")
