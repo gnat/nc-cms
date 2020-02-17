@@ -7,7 +7,7 @@ define('NC_LOGIN_PASSWORD', "admin");  // Password for content editor.
 define('NC_WEBSITE_NAME', "My Website");  // Your website name.
 define('NC_WEBSITE_URL', "http://localhost/example.php");  // Your website internet address.
 define('NC_CMS_URL', "http://localhost/nc-cms");  // Your website internet nc-cms directory address.
-define('NC_LANGUAGE', "english");  // Language pack to use. Currently only english is available.
+define('NC_LANGUAGE', "english");  // Language pack to use.
 
 // Optional database settings. Modify these settings if you wish to use nc-cms's database support.
 
