@@ -4,6 +4,8 @@
 	<head>
 		<title>nc-cms | <?php echo NC_LANG_LOGIN; ?></title>
 		<meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+		<meta name="robots" content="noindex" />
+		<meta name="robots" content="nofollow" />
 		<link rel="stylesheet" type="text/css" media="screen" href="system/css/login.css"/>
 		<script type="text/javascript" src="system/js/jquery.js"></script>
 		<script type="text/javascript">
