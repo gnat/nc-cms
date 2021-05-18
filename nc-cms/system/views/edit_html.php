@@ -57,7 +57,7 @@
 				if(answer)
 				{
 					confirmed_exit = true;
-					this.location.href = "<?php echo $_SERVER['HTTP_REFERER']; ?>";
+					this.location.href = document.referrer;
 				}
 			}
 
@@ -72,7 +72,8 @@
 			<div id="editor">
 				<h1 title="Powered by nc-cms"><?php echo NC_WEBSITE_NAME; ?>
 				</h1>
-				<form name="editorform" id="editorform" method="post" action="index.php?action=save&amp;ref=<?php echo $_SERVER['HTTP_REFERER']; ?>">
+				<form name="editorform" id="editorform" method="post" action="index.php?action=save">
+					<input type="hidden" name="ref" value="<?php echo $_SERVER['HTTP_REFERER'];?>">
 					<br />
 					<textarea cols="102" rows="20" name="editordata" id="editordata" class="textfield"><?php echo htmlspecialchars($data); ?></textarea>
 					<input name="name" id="name" type="hidden" value="<?php echo $name; ?>" />
