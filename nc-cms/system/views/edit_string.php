@@ -46,7 +46,8 @@
 			<div id="editor">
 				<h1 title="Powered by nc-cms"><?php echo NC_WEBSITE_NAME; ?>
 				</h1>
-				<form name="editorform" id="editorform" method="post" action="index.php?action=save&amp;ref=<?php echo $_SERVER['HTTP_REFERER']; ?>">
+				<form name="editorform" id="editorform" method="post" action="index.php?action=save">
+					<input type="hidden" name="ref" value="<?php echo $_SERVER['HTTP_REFERER'];?>">
 					<p>
 						<br />
 						<input type="text" name="editordata" id="user" class="textfield" size="24" value="<?php echo htmlspecialchars($data); ?>" />

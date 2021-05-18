@@ -383,13 +383,13 @@ class NCCms
 		{
 			$this->UserCheck();
 
-			if(isset($_GET['ref'])) // Required GET data.
+			if(isset($_POST['ref'])) // Required POST data - referrer
 			{
-				if(isset($_POST['name']) && isset($_POST['editordata'])) // Required POST data.
+				if(isset($_POST['name']) && isset($_POST['editordata'])) // Required POST data - form values
 				{
 					$this->storage->ContentSave($_POST['name'], $_POST['editordata']);
 				}
-				header('Location: '.$_GET['ref']);
+				header('Location: '.$_POST['ref']);
 				exit();
 			}
 			else
