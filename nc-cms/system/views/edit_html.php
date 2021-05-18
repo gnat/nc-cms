@@ -57,7 +57,7 @@
 				if(answer)
 				{
 					confirmed_exit = true;
-					this.location.href = "<?php echo $_SERVER['HTTP_REFERER']; ?>";
+					this.location.href = document.referrer;
 				}
 			}
 
